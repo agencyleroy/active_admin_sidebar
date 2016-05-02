@@ -5,7 +5,7 @@ class ActiveAdmin::Views::Pages::Base < Arbre::HTML::Document
     div id: "active_admin_content", class: main_content_classes do
       build_sidebar unless skip_sidebar? || right_sidebar?
       build_main_content_wrapper
-      build_sidebar unless skip_sidebar? || left_sidebar?
+      build_sidebar unless skip_sidebar? || left_sidebar? || top_sidebar?
     end
   end
 
@@ -13,8 +13,12 @@ class ActiveAdmin::Views::Pages::Base < Arbre::HTML::Document
     assigns[:sidebar_options].try!(:[], :position) == :left
   end
 
+  def top_sidebar?
+    assigns[:sidebar_options].try!(:[], :position) == :top
+  end
+
   def collapsible_sidebar?
-    left_sidebar? && !!assigns[:sidebar_options].try!(:[], :collapsed)
+    (left_sidebar? || top_sidebar?) && !!assigns[:sidebar_options].try!(:[], :collapsed)
   end
 
   def sidebar_is_collapsed?
@@ -22,7 +26,7 @@ class ActiveAdmin::Views::Pages::Base < Arbre::HTML::Document
   end
 
   def right_sidebar?
-     !left_sidebar?
+     !left_sidebar? && !top_sidebar?
   end
 
   def main_content_classes

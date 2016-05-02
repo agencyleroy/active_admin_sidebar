@@ -1,7 +1,9 @@
 @import "active_admin_sidebar_pure_icons";
 
 body.active_admin {
-  #active_admin_content.left_sidebar, #active_admin_content.collapsed_sidebar {
+  #active_admin_content.left_sidebar,
+  #active_admin_content.collapsed_sidebar,
+  #active_admin_content.top_sidebar {
     #sidebar {
       display: block;
       margin-left: 0;

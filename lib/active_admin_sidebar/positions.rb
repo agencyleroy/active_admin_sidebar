@@ -11,6 +11,17 @@ module ActiveAdminSidebar
       end
     end
 
+    def top_sidebar!(options = {})
+      @sidebar_options = { position: :top }
+      if options.fetch(:collapsed, false)
+        collapsed_sidebar
+        @sidebar_options.merge!(
+          is_collapsed: session[:collapsed_sidebar],
+          collapsed: true
+        )
+      end
+    end
+
     def right_sidebar!
       @sidebar_options = { position: :right }
     end
