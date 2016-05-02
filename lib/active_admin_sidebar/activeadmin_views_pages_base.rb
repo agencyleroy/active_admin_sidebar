@@ -36,6 +36,7 @@ class ActiveAdmin::Views::Pages::Base < Arbre::HTML::Document
     else
       classes << "with_sidebar"
       classes << "left_sidebar" if left_sidebar?
+      classes << "top_sidebar" if top_sidebar?
       if collapsible_sidebar?
         classes << "collapsible_sidebar"
         classes << "collapsed_sidebar" if sidebar_is_collapsed?

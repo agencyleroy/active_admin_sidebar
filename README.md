@@ -3,6 +3,11 @@
 Provides ability to manipulate sidebar position with activeadmin (tested with activeadmin ~> 1.0.0.pre)
 
 
+## CHANGES
+
+Removed the left/right functionality and added support for top sidebar
+
+
 Add including of css file 
 
 ```scss
